@@ -19,6 +19,6 @@ package() {
   cd "$srcdir/$pkgname"
 
   install -Dm644 "hooks/06-kernel-mitigations-off.hook" "$pkgdir/usr/share/libalpm/hooks/06-kernel-mitigations-off.hook"
-  install -Dm644 "hooks/zz-kernel-mitigations-off.hook" "$pkgdir/usr/share/libalpm/hooks/zz-kernel-mitigations-off.hook"
+  install -Dm644 "hooks/zy-kernel-mitigations-off.hook" "$pkgdir/usr/share/libalpm/hooks/zy-kernel-mitigations-off.hook"
   install -Dm755 "scripts/kernel-mitigations-off.py" "$pkgdir/usr/share/libalpm/scripts/kernel-mitigations-off"
 }
