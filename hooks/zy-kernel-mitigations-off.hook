@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = *
+
+[Action]
+Description = Disabling kernel mitigations...                                          
+When = PostTransaction
+Exec = /usr/share/libalpm/scripts/kernel-mitigations-off post

@@ -1,0 +1,8 @@
+ #!/bin/bash
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+sudo install -Dm644 "$DIR/hooks/06-kernel-options.hook" "/usr/share/libalpm/hooks/06-kernel-options.hook"
+sudo install -Dm644 "$DIR/hooks/zy-kernel-options.hook" "/usr/share/libalpm/hooks/zy-kernel-options.hook"
+
+sudo install -Dm755 "$DIR/scripts/kernel-options.py" "/usr/share/libalpm/scripts/kernel-options"

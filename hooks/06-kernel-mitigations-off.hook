@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = *
+
+[Action]
+Description = Backing up kernels options...                                                                
+When = PreTransaction
+Exec = /usr/share/libalpm/scripts/kernel-mitigations-off pre
