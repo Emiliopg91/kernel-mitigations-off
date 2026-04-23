@@ -208,4 +208,5 @@ __marimo__/
 
 kernel-mitigations-off
 src
-pkg 
+pkg
+aur
