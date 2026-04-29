@@ -16,6 +16,7 @@ fn on_post() {
         .collect();
 
     for entry in entries {
+        println!(" ==> {}", &entry.file_stem().unwrap().to_string_lossy());
         let lines: Vec<String> = fs::read_to_string(&entry)
             .unwrap()
             .lines()

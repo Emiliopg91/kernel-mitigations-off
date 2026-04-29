@@ -1,6 +1,6 @@
 pkgname=kernel-mitigations-off
-pkgver=1.1.2
-pkgrel=2
+pkgver=1.1.3
+pkgrel=1
 pkgdesc='Pacman hook to disable CPU mitigations'
 arch=('x86_64')
 url='https://github.com/Emiliopg91/kernel-mitigations-off'
