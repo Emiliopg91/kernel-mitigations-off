@@ -207,6 +207,8 @@ marimo/_lsp/
 __marimo__/
 
 kernel-mitigations-off
-src
+src/kernel-mitigations-off
 pkg
 aur
+Cargo.lock
+__test__
