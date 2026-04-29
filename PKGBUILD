@@ -1,6 +1,6 @@
 pkgname=kernel-mitigations-off
 pkgver=1.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc='Pacman hook to disable CPU mitigations'
 arch=('x86_64')
 url='https://github.com/Emiliopg91/kernel-mitigations-off'
@@ -19,6 +19,7 @@ sha256sums=(
 )
 
 build() {
+  cd "$srcdir/$pkgname"
   cargo build --release
 }
 
