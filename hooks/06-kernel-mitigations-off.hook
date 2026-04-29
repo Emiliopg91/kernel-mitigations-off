@@ -7,4 +7,4 @@ Target = *
 [Action]
 Description = Backing up kernels options...                                                                
 When = PreTransaction
-Exec = /usr/share/libalpm/scripts/kernel-mitigations-off pre
+Exec = /usr/share/libalpm/scripts/kernel-mitigations-off --pre

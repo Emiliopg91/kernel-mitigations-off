@@ -212,3 +212,4 @@ pkg
 aur
 Cargo.lock
 __test__
+*pkg.tar.zst
