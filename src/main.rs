@@ -9,17 +9,6 @@ const LOADER_ENTRIES_PATH: &str =
 #[cfg(not(debug_assertions))]
 const LOADER_ENTRIES_PATH: &str = "/boot/loader/entries/*.conf";
 
-fn on_pre() {
-    let entries: Vec<PathBuf> = glob(LOADER_ENTRIES_PATH)
-        .unwrap()
-        .filter_map(Result::ok)
-        .collect();
-
-    for entry in entries {
-        fs::copy(&entry, format!("{}.bk", &entry.to_string_lossy())).unwrap();
-    }
-}
-
 fn on_post() {
     let entries: Vec<PathBuf> = glob(LOADER_ENTRIES_PATH)
         .unwrap()
@@ -27,16 +16,6 @@ fn on_post() {
         .collect();
 
     for entry in entries {
-        let bk_entry = format!("{}.bk", entry.to_string_lossy());
-        println!("  ==> {}", entry.file_stem().unwrap().to_string_lossy());
-
-        if fs::metadata(&entry).unwrap().modified().unwrap()
-            <= fs::metadata(&bk_entry).unwrap().modified().unwrap()
-        {
-            println!("    Up to date");
-            continue;
-        }
-
         let lines: Vec<String> = fs::read_to_string(&entry)
             .unwrap()
             .lines()
@@ -59,15 +38,12 @@ fn on_post() {
             .collect();
 
         fs::write(&entry, lines.join("\n")).unwrap();
-        if fs::remove_file(&bk_entry).is_err() {}
     }
 }
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
-    if args.contains(&"--pre".to_string()) {
-        on_pre();
-    } else if args.contains(&"--post".to_string()) {
+    if args.contains(&"--post".to_string()) {
         on_post();
     }
 }
